@@ -30,51 +30,24 @@ def resume_analyzer(resume_file: Optional[BinaryIO], job_description: str) -> No
     Returns:
         None - Updates the UI directly
     """
-    logger.info("Resume analyzer function called")
-    
-    if st.button("Analyze"):
-        logger.debug("Analyze button clicked")
+    try:
+        logger.info("Resume analyzer function called")
+
+                
+            # Both inputs are provided, proceed with analysis
+        logger.info("Starting resume analysis")
         
-        # Validate inputs
-        if not resume_file:
-            logger.warning("Resume file missing")
-            st.warning("Please upload a resume file.")
-            return
-            
-        if not job_description:
-            logger.warning("Job description missing")
-            st.warning("Please enter a job description.")
-            return
-            
-        # Both inputs are provided, proceed with analysis
-        try:
-            with st.spinner("Analyzing your resume against job requirements..."):
-                logger.info("Starting resume analysis")
-                
-                # Call the ATS checker API
-                report = check_resume_against_job_description(
-                    resume_file, 
-                    job_description
-                )
-                
-                # Display results
-                if report:
-                    logger.info("Resume analysis completed successfully")
-                    st.success("Analysis complete!")
+        # Call the ATS checker API
+        return check_resume_against_job_description(
+            resume_file, 
+            job_description
+        )
+
+
                     
-                    # Display markdown report
-                    st.markdown(report)
-                    
-                    # Log a snippet of the report (first 100 chars)
-                    logger.debug(f"Report snippet: {report[:100]}...")
-                else:
-                    logger.error("Empty report returned from ATS checker")
-                    st.error("Failed to analyze the resume. Please try again later.")
-                    
-        except CustomException as ce:
-            logger.error(f"Custom exception in resume analysis: {str(ce)}")
-            st.error(f"Analysis failed: {str(ce)}")
-        except Exception as e:
-            logger.error(f"Unexpected error in resume analysis: {str(e)}")
-            logger.debug(traceback.format_exc())
-            st.error("An unexpected error occurred. Please try again later.")
+    except CustomException as ce:
+        logger.error(f"Custom exception in resume analysis: {str(ce)}")
+
+    except Exception as e:
+        logger.error(f"Unexpected error in resume analysis: {str(e)}")
+        logger.debug(traceback.format_exc())
