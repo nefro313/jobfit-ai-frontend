@@ -389,7 +389,7 @@ def ats_checker():
     """Main function for the ATS Checker page."""
     try:
         logger.info("Initializing ATS Checker page")
-        
+
         # Set up page
         page_setup()
         
