@@ -48,13 +48,12 @@ def check_resume_against_job_description(
             data=data
         )
         
-        # Check if request was successful
-        response.raise_for_status()
-        
-        # Process successful response
-        report = response.json().get("response", "No response found.")
-        logger.info("ATS check completed successfully")
-        return report
+        # Process the response
+        if response.status_code == 200:
+            report = response.json().get("response", "No report found.")
+            logger.info("Successfully retrieved job analysis report")
+            logger.info("ATS check completed successfully")
+            return report
         
     except requests.exceptions.RequestException as e:
         logger.error(f"ATS API request failed: {str(e)}")
