@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ resume.name }} - Professional Resume</title>
+     <style>
+    :root {
+      --primary-color: #2c3e50;
+      --accent-color: #e74c3c;
+      --background-color: #ecf0f1;
+      --text-color: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px;
+
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .name {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #ffffff;
+      /* changed to white */
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      /* subtle shadow for readability */
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+      font-size: 14px;
+      color: #ffffff;
+      /* changed to white */
+    }
+
+    .about {
+      font-family: 'Lora', serif;
+      /* Attractive, readable serif font */
+      padding: 25px 20px;
+      border-bottom: 1px solid #ddd;
+      background-color: #fafafa;
+      text-align: left;
+      /* Left-aligned for readability */
+      line-height: 1.8;
+      margin: 20px 0;
+    }
+
+    .about .section-title {
+      font-family: 'Montserrat', sans-serif;
+      /* Keep the heading in a clean sans-serif */
+      font-size: 24px;
+      /* Slightly larger for emphasis */
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    .about .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 80%;
+      background-color: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .header .name {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .header .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 80%;
+      background-color: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    .job-title,
+    .degree {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .company,
+    .school {
+      font-style: italic;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: disc inside;
+      margin-left: 20px;
+    }
+
+    .skills ul {
+      list-style: disc;
+      /* Shows bullet points */
+      margin-left: 20px;
+      /* Indents the list so bullets are visible */
+      font-family: 'Roboto', sans-serif;
+      /* Uses Roboto for a fresh look */
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 10px 0;
+    }
+
+    .soft-skills ul {
+      list-style: disc;
+      margin-left: 20px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 10px 0;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      /* Allows items to wrap to the next line if needed */
+      gap: 5px;
+      /* Adds space between items */
+      list-style: none !important;
+      ;
+      /* Remove default bullet points */
+      margin: 0;
+      padding: 0;
+    }
+
+    .skills-list li {
+      background-color: #f7f7f7;
+      /* Light background for contrast */
+      padding: 5px 10px;
+      border: 1px solid var(--accent-color);
+      border-radius: 4px;
+      font-family: 'Roboto', sans-serif;
+      /* Use a complementary font */
+      font-size: 14px;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--primary-color);
+    }
+
+    @media print {
+      body {
+        font-size: 10px;
+        /* Slightly smaller overall text */
+        padding: 5px;
+        /* Reduced padding around the body */
+        -webkit-print-color-adjust: exact;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 10px auto;
+        /* Reduce outer margins */
+        padding: 5px;
+        /* Reduce container padding */
+        box-shadow: none;
+      }
+
+      .header {
+        padding: 15px 10px;
+        /* Reduce header padding */
+      }
+
+      .header .name {
+        font-size: 24px;
+        /* Slightly smaller header text */
+      }
+
+      .header .contact-info {
+        font-size: 10px;
+        gap: 5px;
+      }
+
+      .about,
+      .section {
+        padding: 10px 15px;
+        /* Reduce section padding */
+        margin-bottom: 10px;
+      }
+
+      .section-title {
+        font-size: 16px;
+        /* Smaller section headings */
+        margin-bottom: 10px;
+      }
+
+      .skills-list li,
+      .soft-skills ul li {
+        font-size: 10px;
+        /* Adjust list items font size */
+        padding: 3px 5px;
+        /* Reduce padding in list items */
+      }
+
+      /* Prevent unwanted page breaks */
+      .container,
+      .header,
+      .about,
+      .section {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="name">{{ resume.name }}</div>
+      <div class="contact-info">
+        <span>{{ resume.contact_info.address }}</span>
+        <span>•</span>
+        <span>{{ resume.contact_info.phone }}</span>
+        <span>•</span>
+        <span><a href="mailto:{{ resume.contact_info.email }}" style="color: #ffffff;">{{ resume.contact_info.email }}</a></span>
+        <span>•</span>
+        <span><a href="" style="color: #ffffff;">{{ resume.contact_info.github }}</a></span>
+        <span><a href="{{ resume.contact_info.linkedin }}" target="_blank" style="color: #ffffff;">{{ resume.contact_info.linkedin }}</a></span>
+      </div>
+    </div>
+    
+    <div class="about">
+      <div class="section-title">About Me</div>
+      <p>{{ resume.about_me }}</p>
+    </div>
+    
+    <div class="section">
+      <div class="section-title">Experience</div>
+      {% for exp in resume.experience %}
+      <div class="experience-item">
+        <div class="job-title">
+          <span>{{ exp.job_title }}</span>
+          <span>{{ exp.start_date }} - {{ exp.end_date }}</span>
+        </div>
+        <div class="company">{{ exp.company }}</div>
+        <ul>
+          {% for achievement in exp.achievements %}
+          <li>{{ achievement }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Education</div>
+      {% for edu in resume.education %}
+      <div class="education-item">
+        <div class="degree">
+          <span>{{ edu.degree }}</span>
+          <span>{{ edu.start_date }} - {{ edu.end_date }}</span>
+        </div>
+        <div class="school">{{ edu.institution }}</div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Skills</div>
+      <div class="skills">
+        <ul class="skills-list">
+          {% for skill in resume.skills %}
+          <li>{{ skill }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Soft Skills</div>
+      <div class="soft-skills">
+        <ul>
+          {% for soft_skill in resume.soft_skills %}
+          <li>{{ soft_skill }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>s

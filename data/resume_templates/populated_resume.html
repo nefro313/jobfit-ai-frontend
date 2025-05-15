@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Robin K Philip - Professional Resume</title>
+     <style>
+    :root {
+      --primary-color: #2c3e50;
+      --accent-color: #e74c3c;
+      --background-color: #ecf0f1;
+      --text-color: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px;
+
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .name {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #ffffff;
+      /* changed to white */
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      /* subtle shadow for readability */
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+      font-size: 14px;
+      color: #ffffff;
+      /* changed to white */
+    }
+
+    .about {
+      font-family: 'Lora', serif;
+      /* Attractive, readable serif font */
+      padding: 25px 20px;
+      border-bottom: 1px solid #ddd;
+      background-color: #fafafa;
+      text-align: left;
+      /* Left-aligned for readability */
+      line-height: 1.8;
+      margin: 20px 0;
+    }
+
+    .about .section-title {
+      font-family: 'Montserrat', sans-serif;
+      /* Keep the heading in a clean sans-serif */
+      font-size: 24px;
+      /* Slightly larger for emphasis */
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    .about .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 80%;
+      background-color: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .header .name {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .header .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 80%;
+      background-color: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    .job-title,
+    .degree {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .company,
+    .school {
+      font-style: italic;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: disc inside;
+      margin-left: 20px;
+    }
+
+    .skills ul {
+      list-style: disc;
+      /* Shows bullet points */
+      margin-left: 20px;
+      /* Indents the list so bullets are visible */
+      font-family: 'Roboto', sans-serif;
+      /* Uses Roboto for a fresh look */
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 10px 0;
+    }
+
+    .soft-skills ul {
+      list-style: disc;
+      margin-left: 20px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 10px 0;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      /* Allows items to wrap to the next line if needed */
+      gap: 5px;
+      /* Adds space between items */
+      list-style: none !important;
+      ;
+      /* Remove default bullet points */
+      margin: 0;
+      padding: 0;
+    }
+
+    .skills-list li {
+      background-color: #f7f7f7;
+      /* Light background for contrast */
+      padding: 5px 10px;
+      border: 1px solid var(--accent-color);
+      border-radius: 4px;
+      font-family: 'Roboto', sans-serif;
+      /* Use a complementary font */
+      font-size: 14px;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--primary-color);
+    }
+
+    @media print {
+      body {
+        font-size: 10px;
+        /* Slightly smaller overall text */
+        padding: 5px;
+        /* Reduced padding around the body */
+        -webkit-print-color-adjust: exact;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 10px auto;
+        /* Reduce outer margins */
+        padding: 5px;
+        /* Reduce container padding */
+        box-shadow: none;
+      }
+
+      .header {
+        padding: 15px 10px;
+        /* Reduce header padding */
+      }
+
+      .header .name {
+        font-size: 24px;
+        /* Slightly smaller header text */
+      }
+
+      .header .contact-info {
+        font-size: 10px;
+        gap: 5px;
+      }
+
+      .about,
+      .section {
+        padding: 10px 15px;
+        /* Reduce section padding */
+        margin-bottom: 10px;
+      }
+
+      .section-title {
+        font-size: 16px;
+        /* Smaller section headings */
+        margin-bottom: 10px;
+      }
+
+      .skills-list li,
+      .soft-skills ul li {
+        font-size: 10px;
+        /* Adjust list items font size */
+        padding: 3px 5px;
+        /* Reduce padding in list items */
+      }
+
+      /* Prevent unwanted page breaks */
+      .container,
+      .header,
+      .about,
+      .section {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="name">Robin K Philip</div>
+      <div class="contact-info">
+        <span>Alleppey, Kerala</span>
+        <span>•</span>
+        <span>Not provided</span>
+        <span>•</span>
+        <span><a href="mailto:robinkphilip2001@gmail.com" style="color: #ffffff;">robinkphilip2001@gmail.com</a></span>
+        <span>•</span>
+        <span><a href="" style="color: #ffffff;">https://github.com/nefro313</a></span>
+        <span><a href="in/robinkphilip" target="_blank" style="color: #ffffff;">in/robinkphilip</a></span>
+      </div>
+    </div>
+    
+    <div class="about">
+      <div class="section-title">About Me</div>
+      <p>Highly motivated and experienced Python Software Engineer specializing in developing scalable and efficient applications. Proven ability to design, implement, and integrate solutions using Python and related frameworks. Familiar with ORM libraries and passionate about creating high-quality, maintainable code. Seeking a challenging role to leverage expertise and contribute to exciting projects.</p>
+    </div>
+    
+    <div class="section">
+      <div class="section-title">Experience</div>
+      
+      <div class="experience-item">
+        <div class="job-title">
+          <span>Personal Projects</span>
+          <span>Ongoing - Present</span>
+        </div>
+        <div class="company">GitHub</div>
+        <ul>
+          
+          <li>Developed sales prediction models using Python, enabling data-driven decision-making.</li>
+          
+          <li>Created a student CRM system with Django to manage student information and interactions, improving organizational efficiency.</li>
+          
+          <li>Developed multiple JavaScript projects including Cerebro-api-server-side, Cerebro-brain, face-vision-client, project-hipocam, and Robofriends.</li>
+          
+          <li>Demonstrated commitment to continuous learning and development through active contributions to personal projects.</li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="section">
+      <div class="section-title">Education</div>
+      
+    </div>
+
+    <div class="section">
+      <div class="section-title">Skills</div>
+      <div class="skills">
+        <ul class="skills-list">
+          
+          <li>Python</li>
+          
+          <li>FastAPI (or other Python frameworks)</li>
+          
+          <li>ORM (Object Relational Mapper) libraries</li>
+          
+          <li>REST APIs</li>
+          
+          <li>Data Analysis</li>
+          
+          <li>Data Structures</li>
+          
+          <li>Algorithms</li>
+          
+          <li>Security Implementation</li>
+          
+          <li>Data Protection</li>
+          
+          <li>Performance Tuning</li>
+          
+          <li>Scikit-learn</li>
+          
+          <li>NumPy</li>
+          
+          <li>Pandas</li>
+          
+          <li>Django</li>
+          
+          <li>JavaScript</li>
+          
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Soft Skills</div>
+      <div class="soft-skills">
+        <ul>
+          
+          <li>Excellent Communication</li>
+          
+          <li>Problem Solving</li>
+          
+          <li>Collaboration</li>
+          
+          <li>Creative Solutions</li>
+          
+          <li>Time Management</li>
+          
+          <li>Adaptability</li>
+          
+          <li>Listening Skills</li>
+          
+          <li>Writing Skills</li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>s
