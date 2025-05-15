@@ -1,6 +1,5 @@
 from typing import Optional
 import requests
-from app.core.config import API_BASE_URL
 from app.core.logger import get_logger
 from app.core.config import settings
 
