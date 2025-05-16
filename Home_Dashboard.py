@@ -72,13 +72,20 @@ def home_dashboard():
                 </a>
             </div>
             """, unsafe_allow_html=True)
+    st.markdown(
+    "[☕ Buy Me a Coffee](https://buymeacoffee.com/nefero) ",
+    unsafe_allow_html=True,
+    )
     
     # Footer
     st.markdown("""
     <div style="text-align: center; margin-top: 4rem; color: #666">
         <hr>
+        <p>Hey do like this project and find it useful!</p>
+        <a href="https://buymeacoffee.com/nefero">☕ Why don't you "Buy Me a Coffee"</a>
         <p>🚀 Powered by AI • 🔒 Secure & Private • 🎯 Career Success Optimizer</p>
-        <p>Need help? Contact support@jobfit.ai</p>
+        <p>Need help? Contact </p>
+        <a href="mailto:robinkphilip2001@gmail.com">Write Me Email: robinkphilip2001@gmail.com</a>
     </div>
     """, unsafe_allow_html=True)
 
