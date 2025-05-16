@@ -4,8 +4,6 @@ Resume Analysis UI Module
 This module provides UI functionality for uploading resumes, entering job descriptions,
 and analyzing them through the ATS checker service.
 """
-
-import streamlit as st
 from typing import BinaryIO, Optional
 import traceback
 

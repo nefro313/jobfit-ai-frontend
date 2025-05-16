@@ -1,5 +1,5 @@
 import sys
-from typing import Type
+
 from dataclasses import dataclass
 
 @dataclass

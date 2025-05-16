@@ -9,13 +9,12 @@ This module provides a comprehensive logging setup that combines:
 5. Rotating file handlers to manage log file sizes
 """
 
-import os
 import sys
 import logging
 import logging.handlers
 from datetime import datetime
 from pathlib import Path
-from typing import Optional, Dict, Any
+from typing import Optional
 from app.core.config import settings
 # Import settings conditionally to handle initialization order
 

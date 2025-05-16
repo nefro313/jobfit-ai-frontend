@@ -1,5 +1,5 @@
 import streamlit as st
-import os
+
 def home_dashboard():
     # Custom CSS styling
     st.markdown("""
@@ -72,10 +72,6 @@ def home_dashboard():
                 </a>
             </div>
             """, unsafe_allow_html=True)
-    st.markdown(
-    "[☕ Buy Me a Coffee](https://buymeacoffee.com/nefero) ",
-    unsafe_allow_html=True,
-    )
     
     # Footer
     st.markdown("""

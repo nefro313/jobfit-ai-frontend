@@ -1,7 +1,7 @@
-import re
+
 import json
 from app.core.logger import get_logger
-from typing import Dict, Any, Optional, Union
+from typing import Dict, Any, Union
 
 
 from app.schema.resume_data import ResumeData

@@ -6,8 +6,8 @@ feature, allowing users to enter job URLs and view analysis results.
 """
 
 import streamlit as st
-from typing import Optional
-import re
+
+
 from urllib.parse import urlparse
 
 # Import custom modules

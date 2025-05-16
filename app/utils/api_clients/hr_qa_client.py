@@ -20,8 +20,7 @@ def hr_qa_client(query: str) -> Optional[str]:
     try:
         response = requests.post(
             url=f"{API_BASE_URL}/api/hr-qa/answer",
-            json={"query": query},  # Changed to json for better content-type handling
-            timeout=10  # Add timeout to prevent hanging requests
+            data={"query": query},  # Changed to json for better content-type handling
         )
         
         # Log successful request metrics

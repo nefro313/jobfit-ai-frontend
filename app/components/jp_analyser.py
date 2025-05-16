@@ -1,5 +1,5 @@
 import streamlit as st
-import re
+
 from app.utils.api_clients.job_posting_analyser_client import analyze_job_posting
 
 

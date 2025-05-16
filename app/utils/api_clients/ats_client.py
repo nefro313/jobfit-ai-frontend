@@ -1,7 +1,7 @@
 
-import sys
+
 import requests
-from typing import Optional, Dict, Any, BinaryIO, Union
+from typing import Optional, Dict, Any, BinaryIO
 from app.core.config import settings
 
 from app.core.logger import get_logger

@@ -3,10 +3,10 @@ import os
 import tempfile
 from pathlib import Path
 from app.core.logger import get_logger
-from typing import Union, Optional, BinaryIO
+from typing import Union, Optional
 from playwright.sync_api import sync_playwright
-import base64
-from io import BytesIO
+
+
 
 # # Configure logging
 # logging.basicConfig(
