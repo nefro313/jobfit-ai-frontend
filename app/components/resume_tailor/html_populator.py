@@ -92,14 +92,14 @@ def process_resume_data(resume_input: Union[Dict[str, Any], str]) -> str:
         Populated HTML string
     """
     try:
+        logger.info(f"Resume function started{resume_input}")
         # Parse string input to dict
-        if isinstance(resume_input, str):
-            resume_json = json.loads(resume_input)
-        else:
-            resume_json = resume_input
+        # if isinstance(resume_input, str):
+        #     resume_json = json.loads(resume_input)
+        #     return
 
         # Validate with Pydantic
-        resume_data = ResumeData(**resume_json)
+        resume_data = ResumeData(**resume_input)
         logger.info("Resume data validated successfully")
 
         # Template path
@@ -125,4 +125,4 @@ def process_resume_data(resume_input: Union[Dict[str, Any], str]) -> str:
 
     except Exception as e:
         logger.error(f"Error processing resume data: {e}")
-        raise
+        raise 
