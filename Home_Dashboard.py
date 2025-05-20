@@ -1,5 +1,5 @@
 import streamlit as st
-
+import os
 def home_dashboard():
     # Custom CSS styling
     st.markdown("""
@@ -87,4 +87,5 @@ def home_dashboard():
 
 if __name__ == "__main__":
     home_dashboard()
-    
+    os.system("playwright install")
+    os.system("playwright install-deps")
