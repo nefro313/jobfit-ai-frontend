@@ -88,4 +88,4 @@ def home_dashboard():
 if __name__ == "__main__":
     home_dashboard()
     os.system("playwright install")
-    os.system("playwright install-deps")
+    os.system("sudo playwright install-deps")
