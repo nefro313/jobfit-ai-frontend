@@ -2,10 +2,12 @@ import requests
 from app.core.logger import get_logger
 from app.core.exceptions import CustomException
 
-API_BASE_URL = "http://localhost:8000"
+from app.core.config import settings
 
+
+API_BASE_URL = settings.API_BASE_URL
     
-
+logger =get_logger(__name__)
 
 
 def tailor_resume_and_guide(resume_file, job_posting_url, github_url, write_up):
@@ -36,18 +38,15 @@ def tailor_resume_and_guide(resume_file, job_posting_url, github_url, write_up):
             data=data,
 
         )
-
+        response.raise_for_status() 
 
         # Safely extract data
-        resp_json = response.json()
-        return resp_json
 
-    except requests.exceptions.Timeout:
-        return "⏳ Request timed out. Try again later."
+        return response
 
     except requests.exceptions.RequestException as e:
-        return f"❌ Error communicating with AI service: {str(e)}"
+            logger.error(f"❌ Error communicating with AI service: {str(e)}")
 
     except ValueError:
-        return "⚠️ Response was not valid JSON."
+          logger.error( "⚠️ Response was not valid JSON.")
 

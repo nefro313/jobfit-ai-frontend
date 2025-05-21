@@ -1,7 +1,7 @@
 import streamlit as st
 from app.core.logger import get_logger
 # from app.components.resume_tailor.html_populator import process_resume_data
-from app.components.resume_tailor.html_to_pdf import create_pdf_from_html
+# from app.components.resume_tailor.html_to_pdf import create_pdf_from_html
 from app.utils.api_clients.resume_tailor_client import tailor_resume_and_guide
 
 logger = get_logger(__name__)
@@ -26,6 +26,9 @@ def resume_builder():
 
     # === If Form Submitted ===
     if submit_button:
+        if not resume_file:
+            st.warning("Please upload your resume.")
+            return
         if not all([job_posting_link, github_link, write_up]):
             st.warning("Please fill out all fields")
             return
@@ -35,7 +38,7 @@ def resume_builder():
                 response = tailor_resume_and_guide(resume_file, job_posting_link, github_link, write_up)
 
                 # resume_json = response.get("resume_json")
-                markdown_result = response.get("result", "No analysis provided.")
+                markdown_result = response.json().get("result", "No analysis provided.")
 
                 # if not resume_json:
                 #     st.error("Invalid response format: missing resume data")
@@ -44,7 +47,10 @@ def resume_builder():
                 # Generate HTML & PDF
                 # html_content = process_resume_data(resume_json)
                 output_pdf_path = "data/resume_templates/tailored_resume.pdf"
-                pdf_bytes = create_pdf_from_html(output_pdf_path)
+                # pdf_bytes = create_pdf_from_html(output_pdf_path)
+                with open(output_pdf_path, 'rb') as f:
+                    pdf_bytes = f.read()
+            
 
                 # Save results to session
                 st.session_state.submitted = True
