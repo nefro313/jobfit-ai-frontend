@@ -43,7 +43,7 @@ def resume_builder():
 
                 # Generate HTML & PDF
                 # html_content = process_resume_data(resume_json)
-                output_pdf_path = "data/resume_templates/your_tailored_resume.pdf"
+                output_pdf_path = "data/resume_templates/tailored_resume.pdf"
                 pdf_bytes = create_pdf_from_html(output_pdf_path)
 
                 # Save results to session
