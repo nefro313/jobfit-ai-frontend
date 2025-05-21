@@ -36,7 +36,7 @@ def tailor_resume_and_guide(resume_file, job_posting_url, github_url, write_up):
             data=data,
 
         )
-        response.raise_for_status()  # raises HTTPError if not 200
+
 
         # Safely extract data
         resp_json = response.json()

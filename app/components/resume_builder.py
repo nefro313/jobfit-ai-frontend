@@ -34,21 +34,21 @@ def resume_builder():
             try:
                 response = tailor_resume_and_guide(resume_file, job_posting_link, github_link, write_up)
 
-                resume_json = response.get("resume_json")
+                # resume_json = response.get("resume_json")
                 markdown_result = response.get("result", "No analysis provided.")
 
-                if not resume_json:
-                    st.error("Invalid response format: missing resume data")
-                    return
+                # if not resume_json:
+                #     st.error("Invalid response format: missing resume data")
+                #     return
 
                 # Generate HTML & PDF
-                html_content = process_resume_data(resume_json)
+                # html_content = process_resume_data(resume_json)
                 output_pdf_path = "data/resume_templates/your_tailored_resume.pdf"
-                pdf_bytes = create_pdf_from_html(html_content, output_pdf_path)
+                pdf_bytes = create_pdf_from_html(output_pdf_path)
 
                 # Save results to session
                 st.session_state.submitted = True
-                st.session_state.resume_json = resume_json
+                # st.session_state.resume_json = resume_json
                 st.session_state.markdown_result = markdown_result
                 st.session_state.pdf_bytes = pdf_bytes
 
