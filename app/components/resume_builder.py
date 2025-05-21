@@ -1,6 +1,6 @@
 import streamlit as st
 from app.core.logger import get_logger
-from app.components.resume_tailor.html_populator import process_resume_data
+# from app.components.resume_tailor.html_populator import process_resume_data
 from app.components.resume_tailor.html_to_pdf import create_pdf_from_html
 from app.utils.api_clients.resume_tailor_client import tailor_resume_and_guide
 
@@ -12,7 +12,7 @@ def resume_builder():
     # Set up session state to persist data after form submission
     if "submitted" not in st.session_state:
         st.session_state.submitted = False
-        st.session_state.resume_json = None
+        # st.session_state.resume_json = None
         st.session_state.markdown_result = ""
         st.session_state.pdf_bytes = None
 
@@ -56,7 +56,7 @@ def resume_builder():
 
             except Exception as e:
                 logger.exception(f"Error generating resume: {str(e)}")
-                st.error("Something went wrong. Please try again.")
+                st.error(f"Something went wrong. Please try again.{e}")
 
     # === Display Results and Download Button AFTER Submission ===
     if st.session_state.submitted:
